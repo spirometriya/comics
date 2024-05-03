@@ -4,8 +4,10 @@ import telegram
 import fetch_image_utils as common
 import fetch_xkcd_comics as xkcd
 from dotenv import load_dotenv
+from pathlib import Path
 
 if __name__ == "__main__":
+    Path(common.IMAGE_FOLDER).mkdir(parents=True, exist_ok=True)
     load_dotenv()
     filename = xkcd.fetch_comics()
     if common.check_file_size(filename):
