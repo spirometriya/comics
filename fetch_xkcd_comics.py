@@ -14,8 +14,7 @@ def get_random_comics_id():
     return random.randint(1, total_comics)
 
 
-def fetch_comics():
-    comics_id = get_random_comics_id()
+def fetch_comics(comics_id):
     response = requests.get(COMICS_URL_BY_ID.format(comics_id))
     response.raise_for_status()
     url = response.json().get("img")

@@ -9,7 +9,7 @@ from pathlib import Path
 if __name__ == "__main__":
     Path(common.IMAGE_FOLDER).mkdir(parents=True, exist_ok=True)
     load_dotenv()
-    filename = xkcd.fetch_comics()
+    filename = xkcd.fetch_comics(xkcd.get_random_comics_id())
     if common.check_file_size(filename):
         bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
         try:
