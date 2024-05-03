@@ -13,7 +13,8 @@ if __name__ == "__main__":
         try:
             with open(f"{common.IMAGE_FOLDER}{filename}", "rb") as file:
                 bot.send_document(chat_id=os.environ["TELEGRAM_CHAT_ID"], document=file)
-            os.remove(f"{common.IMAGE_FOLDER}{filename}")
             print("The comics has been successfully posted to telegram")
         except requests.HTTPError:
             print("Post comics error - check the validity of token and chat-id")
+        finally:
+            os.remove(f"{common.IMAGE_FOLDER}{filename}")
