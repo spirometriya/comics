@@ -2,7 +2,7 @@ import requests
 import os
 from urllib.parse import urlparse, unquote
 
-IMAGE_FOLDER = f"{os.getcwd()}\\images\\"
+IMAGE_FOLDER = os.path.join(os.getcwd(), "images")
 MAX_FILE_SIZE = 20000000
 
 
@@ -16,12 +16,12 @@ def download_picture(url, path, file_name):
     payload = {}
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    with open(f"{path}\\{file_name}", mode="wb") as file:
+    with open(os.path.join(path, file_name), mode="wb") as file:
         file.write(response.content)
 
 
 def check_file_size(filename):
-    file_size = os.path.getsize(f"{IMAGE_FOLDER}{filename}")
+    file_size = os.path.getsize(os.path.join(IMAGE_FOLDER, filename))
     if file_size < MAX_FILE_SIZE:
         return True
 
