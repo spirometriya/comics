@@ -1,5 +1,6 @@
 # Comics publisher
-The script allows you to download random comics images from [xkcd.com](https://xkcd.com/) and post them to the telegram group. 
+The script allows you to download random comics images from [xkcd.com](https://xkcd.com/) and post them to the telegram group.
+The comics file will be deleted from the "images" folder of your project after publication.
 
 # How to install
 
