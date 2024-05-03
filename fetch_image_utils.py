@@ -24,8 +24,3 @@ def check_file_size(filename):
     file_size = os.path.getsize(os.path.join(IMAGE_FOLDER, filename))
     if file_size < MAX_FILE_SIZE:
         return True
-
-
-def get_valid_images():
-    images = list(os.walk(IMAGE_FOLDER))[0][2]
-    return [image for image in images if check_file_size(image)]

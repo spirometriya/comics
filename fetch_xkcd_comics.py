@@ -1,4 +1,3 @@
-import argparse
 import fetch_image_utils as common
 import random
 import requests
